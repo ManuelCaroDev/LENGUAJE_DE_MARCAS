@@ -9,8 +9,55 @@
   <form>
     <fieldset>
       <legend>Informacion personal:</legend>
+      <br />
       <label for="nombre">Nombre:</label>
-      <input type="text" name="nombre">
+      <input type="text" name="nombre" id="nombre" required />
+      <br /><br />
+      <label for="email">Correo electronico:</label>
+      <input type="email" name="email" id="email" required />
+      <br /><br />
+      <label for="age">Edad:</label>
+      <input type="number" name="age" id="age" max="18" required />
+      <br /><br />
+      <label for="sexo">Sexo:</label>
+      <select name="sexo" id="sexo" required>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="otro">Otro</option></select
+      ><br /><br />
+      <label for="estadoCivil">Estado civil:</label>
+      <select name="estadoCivil" id="estadoCivil" required>
+        <option value="soltero">Soltero</option>
+        <option value="casado">Casado</option>
+        <option value="divorciado">Divorciado</option></select
+      ><br /><br />
+      <label for="nacimiento">Fecha de nacimiento:</label>
+      <input type="date" name="nacimiento" id="nacimiento" required />
+      <br /><br />
+      <label for="archivo">Sube un archivo:</label>
+      <input type="file" name="archivo" id="archivo" />
+    </fieldset>
+    <br /><br />
+    <fieldset>
+      <legend>Preferencias de peliculas:</legend>
+      <br />
+      <label for="genero">Genero favorito:</label>
+      <select name="genero" id="genero">
+        <option value="accion">Accion</option>
+        <option value="comedia">Comedia</option>
+        <option value="drama">Drama</option>
+        <option value="terror">Terror</option></select
+      ><br /><br />
+      <label for="3d">Te gustan las peliculas 3d? :</label>
+      <input type="radio" name="si" id="si" value="si" required />
+      <label for="si">Si</label>
+      <input type="radio" name="no" id="no" value="no" required />
+      <label for="no">No</label><br /><br />
+      <label for="comentario">Comentarios:</label>
+      <br />
+      <textarea rows="5" cols="50" id="comentarios" required>
+Escribe cualquier comentario adicional que tengas sobre tus gustos cinematográficos aqui!</textarea
+      >
     </fieldset>
   </form>
 </body>
