@@ -1,0 +1,227 @@
+/* Estilos básicos */
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* Estilo del encabezado (header) */
+header {
+    grid-area: header;
+    background: #4CAF50; 
+    color: white; 
+    padding: 1rem; 
+    text-align: center;
+    justify-content: space-between; 
+    align-items: center; 
+    display: flex;
+    
+
+}
+header > h1 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilo de los enlaces del menú de navegación */
+header nav a {
+    margin: 0 1rem; /* Añade espacio horizontal entre los enlaces */
+    color: white;    
+    text-decoration: none;
+}
+
+
+/* Estilo para el logo */
+.logo {
+    width: 300px; 
+    height: auto; 
+    vertical-align: middle; 
+    margin-right: 10px; 
+}
+
+/* Estilo para las imágenes en la lista de datos */
+.data-icon {
+    width: 200px; 
+    height: auto; 
+    margin-right: 8px; 
+    vertical-align: middle;
+}
+/* Contenedor principal con Grid */
+.container {    
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer"
+    ;
+    grid-template-columns: 0% 100%;
+    grid-template-rows: auto 1fr auto;
+
+}
+
+/* Asignación de áreas en el grid */
+
+/* .sidebar-container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    width: 0;
+} */
+.sidebar-container {
+    position:relative;
+    width: 20px;
+    height: 100%;
+    background-color: transparent;
+    /* background-image: url(./images/icons8-menú.svg);
+    background-repeat: no-repeat; */
+}
+
+.sidebar {   
+    grid-area: sidebar;
+    background: #f0f0f0; /* Fondo gris claro */
+    padding: 1rem; /* Espaciado interno */
+    width: 150px;
+    height:90%;
+    transform: translateX(-100%) ;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-container:hover .sidebar{
+    transform: translateX(0);
+}
+
+.container:has(.sidebar-container:hover) {
+    grid-template-columns: 20% 80%;
+}
+/* .sidebar-container:not(:hover){
+    
+} */
+
+/* Estilo de la lista del sidebar */
+.sidebar ul {  
+    padding: 0; 
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 1rem; 
+}
+
+.sidebar ul li a {
+    text-decoration: none; 
+    color: #333; 
+}
+
+main {
+    grid-area: main;
+    padding: 1rem;
+}
+
+footer {
+    grid-area: footer;
+    width: 100%;
+    background: #4CAF50; 
+    color: white; 
+    text-align: center; 
+    padding: 1rem; 
+    
+    /* bottom: 0; */
+
+
+    
+}
+
+/* Grid para la sección de categorías*/
+.stats {   
+    gap: 1rem; 
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+/* Estilo de las cajas de categorías */
+.stat-box {
+    background: #e0e0e0; 
+    padding: 1rem; 
+    text-align: center; 
+    border-radius: 8px; 
+}
+
+.data  h2{
+    display: flex;
+    justify-content: center;
+}
+/* Flexbox para la lista de tipos de vivienda */
+.data ul {
+    gap: 1rem; 
+    list-style: none; 
+    padding: 0; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.data ul li {
+    background: #f4f4f4; 
+    padding: 1rem; 
+    border-radius: 4px; 
+    text-align: center; 
+}
+
+@media (max-width:1145px) {
+    header nav{
+        display:flex ;
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 940px) {
+    .container {    
+        grid-template-areas: 
+            "header"
+            "sidebar" 
+            "main"
+            "footer"
+        ;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        margin: auto;
+    }
+    .sidebar{
+        display: grid;
+        position: relative;
+        transform: none;
+        height: auto;
+        width: 100%;
+        
+    }
+    .sidebar ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: auto;
+        justify-content: space-evenly;
+
+    }
+    .sidebar>ul>li{
+        text-align: center;
+    }
+    .sidebar-container{
+        width: 100%;
+    }
+    .container:has(.sidebar-container:hover) {
+        grid-template-columns: 100%;
+    }
+    
+}
+
+@media (max-width: 748px){
+    .stats {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
